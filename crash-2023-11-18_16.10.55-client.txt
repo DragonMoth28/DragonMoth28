@@ -1,0 +1,757 @@
+---- Minecraft Crash Report ----
+// There are four lights!
+
+Time: 11/18/23, 4:10 PM
+Description: Rendering item
+
+java.lang.ClassCastException: class chronosacaria.mcda.items.ArmorSetItem cannot be cast to class net.minecraft.class_1747 (chronosacaria.mcda.items.ArmorSetItem and net.minecraft.class_1747 are in unnamed module of loader org.quiltmc.loader.impl.launch.knot.KnotClassLoader @28d25987)
+	at potionstudios.byg.client.textures.ColorManager.lambda$onItemColorsInit$3(ColorManager.java:26)
+	at net.minecraft.class_325.method_1704(class_325.java:84)
+	at link.infra.indium.renderer.render.ItemRenderContext.colorizeQuad(ItemRenderContext.java:183)
+	at link.infra.indium.renderer.render.ItemRenderContext.renderQuad(ItemRenderContext.java:192)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.renderQuadWithTransform(ItemRenderContext.java:293)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.accept(ItemRenderContext.java:276)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.accept(ItemRenderContext.java:262)
+	at net.minecraft.class_1087.emitItemQuads(class_1087.java:1051)
+	at net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel.emitItemQuads(ForwardingBakedModel.java:57)
+	at me.pepperbell.continuity.client.model.EmissiveBakedModel.emitItemQuads(EmissiveBakedModel.java:103)
+	at link.infra.indium.renderer.render.ItemRenderContext.renderModel(ItemRenderContext.java:106)
+	at net.minecraft.class_918.handler$zhm000$indium$hook_renderItem(class_918.java:1555)
+	at net.minecraft.class_918.method_23179(class_918.java:131)
+	at net.minecraft.class_918.method_4021(class_918.java:306)
+	at net.minecraft.class_918.method_4026(class_918.java:349)
+	at net.minecraft.class_918.method_36543(class_918.java:339)
+	at net.minecraft.class_918.method_27951(class_918.java:335)
+	at net.minecraft.class_465.method_2385(class_465.java:264)
+	at net.minecraft.class_465.method_25394(class_465.java:122)
+	at net.minecraft.class_485.method_25394(class_485.java:29)
+	at net.minecraft.class_481.method_25394(class_481.java:679)
+	at net.minecraft.class_757.method_3192(class_757.java:877)
+	at net.minecraft.class_310.method_1523(class_310.java:1122)
+	at net.minecraft.class_310.method_1514(class_310.java:737)
+	at net.minecraft.client.main.Main.main(Main.java:236)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.quiltmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:551)
+	at org.quiltmc.loader.impl.launch.knot.Knot.launch(Knot.java:84)
+	at org.quiltmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:28)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at potionstudios.byg.client.textures.ColorManager.lambda$onItemColorsInit$3(ColorManager.java:26)
+	at net.minecraft.class_325.method_1704(class_325.java:84)
+	at link.infra.indium.renderer.render.ItemRenderContext.colorizeQuad(ItemRenderContext.java:183)
+	at link.infra.indium.renderer.render.ItemRenderContext.renderQuad(ItemRenderContext.java:192)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.renderQuadWithTransform(ItemRenderContext.java:293)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.accept(ItemRenderContext.java:276)
+	at link.infra.indium.renderer.render.ItemRenderContext$FallbackConsumer.accept(ItemRenderContext.java:262)
+	at net.minecraft.class_1087.emitItemQuads(class_1087.java:1051)
+	at net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel.emitItemQuads(ForwardingBakedModel.java:57)
+	at me.pepperbell.continuity.client.model.EmissiveBakedModel.emitItemQuads(EmissiveBakedModel.java:103)
+	at link.infra.indium.renderer.render.ItemRenderContext.renderModel(ItemRenderContext.java:106)
+	at net.minecraft.class_918.handler$zhm000$indium$hook_renderItem(class_918.java:1555)
+	at net.minecraft.class_918.method_23179(class_918.java:131)
+	at net.minecraft.class_918.method_4021(class_918.java:306)
+	at net.minecraft.class_918.method_4026(class_918.java:349)
+	at net.minecraft.class_918.method_36543(class_918.java:339)
+	at net.minecraft.class_918.method_27951(class_918.java:335)
+	at net.minecraft.class_465.method_2385(class_465.java:264)
+	at net.minecraft.class_465.method_25394(class_465.java:122)
+	at net.minecraft.class_485.method_25394(class_485.java:29)
+	at net.minecraft.class_481.method_25394(class_481.java:679)
+Mixins in Stacktrace:
+	net.minecraft.class_325:
+		potionstudios.byg.mixin.client.MixinItemColors (#byg:byg_fabric.mixins.json)
+		me.jellysquid.mods.sodium.mixin.core.model.MixinItemColors (#sodium:sodium.mixins.json)
+		org.quiltmc.qsl.registry.mixin.client.ItemColorsMixin (#quilt_registry:quilt_registry.mixins.json)
+		net.fabricmc.fabric.mixin.client.rendering.MixinItemColorMap (#quilted_fabric_rendering_v1:quilted_fabric_rendering_v1.mixins.json)
+	net.minecraft.class_1087:
+		ca.fxco.moreculling.mixin.models.BakedModel_extendsMixin (#moreculling:moreculling.mixins.json)
+		net.fabricmc.fabric.mixin.renderer.client.MixinBakedModel (#quilted_fabric_renderer_api_v1:quilted_fabric_renderer_api_v1.mixins.json)
+	net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel:
+		ca.fxco.moreculling.mixin.models.ForwardingBakedModel_compatMixin (#moreculling:moreculling.mixins.json)
+	net.minecraft.class_918:
+		net.devtech.stacc.mixin.RenderItemCountFixin (#stacc:stacc.mixins.json)
+		net.fabricmc.fabric.mixin.resource.loader.client.KeyedResourceReloadListenerClientMixin (#quilted_fabric_resource_loader_v0:quilted_fabric_resource_loader_v0.mixins.json)
+		me.jellysquid.mods.sodium.mixin.features.item.MixinItemRenderer (#sodium:sodium.mixins.json)
+		net.raphimc.immediatelyfast.injection.mixins.hud_batching.consumer.MixinItemRenderer (#immediatelyfast:immediatelyfast.mixins.json)
+		virtuoel.pehkui.mixin.client.compat117plus.compat1193minus.ItemRendererMixin (#pehkui:pehkui.mixins.json)
+		net.coderbot.iris.mixin.entity_render_context.MixinItemRenderer (#iris:mixins.iris.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.KeyedClientResourceReloaderMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.item.ItemRendererMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.enchantment.ItemRendererMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		dev.tr7zw.exordium.mixin.ItemRendererMixin (#exordium:exordium.mixins.json)
+		ca.fxco.moreculling.mixin.items.ItemRenderer_bakedModelMixin (#moreculling:moreculling.mixins.json)
+		link.infra.indium.mixin.renderer.MixinItemRenderer (#indium:indium.mixins.json)
+	net.minecraft.class_465:
+		yalter.mousetweaks.mixin.AbstractContainerScreenAccessor (#mousetweaks:mousetweaks.mixins.json)
+		dev.isxander.debugify.mixins.basic.client.mc80859.HandledScreenMixin (#debugify:debugify-common.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.IMixinContainerScreen (#inventoryprofilesnext:mixins.ipnext.json)
+		dev.architectury.mixin.fabric.client.MixinAbstractContainerScreen (#architectury:architectury.mixins.json)
+		io.github.apace100.calio.mixin.HandledScreenFocusedSlotAccessor (#calio:calio.mixins.json)
+		dev.emi.trinkets.mixin.HandledScreenMixin (#trinkets:trinkets.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinContainerScreen (#inventoryprofilesnext:mixins.ipnext.json)
+	net.minecraft.class_485:
+		me.shedaniel.rei.mixin.fabric.MixinEffectRenderingInventoryScreen (#roughlyenoughitems:rei.mixins.json)
+	net.minecraft.class_481:
+		io.wispforest.owo.mixin.itemgroup.CreativeInventoryScreenMixin (#owo:owo.mixins.json)
+		dev.emi.trinkets.mixin.CreativeInventoryScreenMixin (#trinkets:trinkets.mixins.json)
+		org.quiltmc.qsl.item.group.mixin.client.CreativeInventoryScreenMixin (#quilt_item_group:quilt_item_group.mixins.json)
+
+-- Item being rendered --
+Details:
+	Item Type: hungry_horror_helmet
+	Item Damage: 0
+	Item NBT: {Damage:0}
+	Item Foil: false
+Stacktrace:
+	at net.minecraft.class_918.method_4026(class_918.java:349)
+	at net.minecraft.class_918.method_36543(class_918.java:339)
+	at net.minecraft.class_918.method_27951(class_918.java:335)
+	at net.minecraft.class_465.method_2385(class_465.java:264)
+	at net.minecraft.class_465.method_25394(class_465.java:122)
+	at net.minecraft.class_485.method_25394(class_485.java:29)
+	at net.minecraft.class_481.method_25394(class_481.java:679)
+	at net.minecraft.class_757.method_3192(class_757.java:877)
+	at net.minecraft.class_310.method_1523(class_310.java:1122)
+	at net.minecraft.class_310.method_1514(class_310.java:737)
+	at net.minecraft.client.main.Main.main(Main.java:236)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.quiltmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:551)
+	at org.quiltmc.loader.impl.launch.knot.Knot.launch(Knot.java:84)
+	at org.quiltmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:28)
+Mixins in Stacktrace:
+	net.minecraft.class_918:
+		net.devtech.stacc.mixin.RenderItemCountFixin (#stacc:stacc.mixins.json)
+		net.fabricmc.fabric.mixin.resource.loader.client.KeyedResourceReloadListenerClientMixin (#quilted_fabric_resource_loader_v0:quilted_fabric_resource_loader_v0.mixins.json)
+		me.jellysquid.mods.sodium.mixin.features.item.MixinItemRenderer (#sodium:sodium.mixins.json)
+		net.raphimc.immediatelyfast.injection.mixins.hud_batching.consumer.MixinItemRenderer (#immediatelyfast:immediatelyfast.mixins.json)
+		virtuoel.pehkui.mixin.client.compat117plus.compat1193minus.ItemRendererMixin (#pehkui:pehkui.mixins.json)
+		net.coderbot.iris.mixin.entity_render_context.MixinItemRenderer (#iris:mixins.iris.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.KeyedClientResourceReloaderMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.item.ItemRendererMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.enchantment.ItemRendererMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		dev.tr7zw.exordium.mixin.ItemRendererMixin (#exordium:exordium.mixins.json)
+		ca.fxco.moreculling.mixin.items.ItemRenderer_bakedModelMixin (#moreculling:moreculling.mixins.json)
+		link.infra.indium.mixin.renderer.MixinItemRenderer (#indium:indium.mixins.json)
+	net.minecraft.class_465:
+		yalter.mousetweaks.mixin.AbstractContainerScreenAccessor (#mousetweaks:mousetweaks.mixins.json)
+		dev.isxander.debugify.mixins.basic.client.mc80859.HandledScreenMixin (#debugify:debugify-common.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.IMixinContainerScreen (#inventoryprofilesnext:mixins.ipnext.json)
+		dev.architectury.mixin.fabric.client.MixinAbstractContainerScreen (#architectury:architectury.mixins.json)
+		io.github.apace100.calio.mixin.HandledScreenFocusedSlotAccessor (#calio:calio.mixins.json)
+		dev.emi.trinkets.mixin.HandledScreenMixin (#trinkets:trinkets.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinContainerScreen (#inventoryprofilesnext:mixins.ipnext.json)
+	net.minecraft.class_485:
+		me.shedaniel.rei.mixin.fabric.MixinEffectRenderingInventoryScreen (#roughlyenoughitems:rei.mixins.json)
+	net.minecraft.class_481:
+		io.wispforest.owo.mixin.itemgroup.CreativeInventoryScreenMixin (#owo:owo.mixins.json)
+		dev.emi.trinkets.mixin.CreativeInventoryScreenMixin (#trinkets:trinkets.mixins.json)
+		org.quiltmc.qsl.item.group.mixin.client.CreativeInventoryScreenMixin (#quilt_item_group:quilt_item_group.mixins.json)
+	net.minecraft.class_757:
+		com.jamieswhiteshirt.reachentityattributes.mixin.client.GameRendererMixin (#reach-entity-attributes:mixins.reach-entity-attributes.json)
+		dev.quantumfusion.dashloader.mixin.option.cache.shader.GameRendererMixin (#dashloader:dashloader.mixins.json)
+		dynamic_fps.impl.mixin.GameRendererMixin (#dynamic_fps:dynamic_fps.mixins.json)
+		xaero.map.mixin.MixinGameRenderer (#xaeroworldmap:xaeroworldmap.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinGameRenderer (#inventoryprofilesnext:mixins.ipnext.json)
+		net.coderbot.iris.mixin.MixinModelViewBobbing (#iris:mixins.iris.json)
+		dev.tr7zw.exordium.mixin.GameRendererMixinLow (#exordium:exordium.mixins.json)
+		org.quiltmc.qsl.screen.mixin.client.GameRendererMixin (#quilt_screen:quilt_screen.mixins.json)
+		net.coderbot.iris.mixin.MixinGameRenderer (#iris:mixins.iris.json)
+		gg.essential.mixins.transformers.client.renderer.MixinEntityRenderer (mixins.essential.json)
+		me.flashyreese.mods.sodiumextra.mixin.prevent_shaders.MixinGameRenderer (#sodium-extra:sodium-extra.mixins.json)
+		virtuoel.pehkui.mixin.client.compat115plus.compat1192minus.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		virtuoel.pehkui.mixin.client.compat115plus.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinGameRenderer (#architectury:architectury.mixins.json)
+		gg.essential.mixins.transformers.client.renderer.MixinEntityRenderer_Zoom (mixins.essential.json)
+		folk.sisby.swingthrough.mixin.client.GameRendererMixin (#swingthrough:swingthrough.mixins.json)
+		net.coderbot.iris.mixin.GameRendererAccessor (#iris:mixins.iris.json)
+		net.coderbot.iris.mixin.MixinGameRenderer_NightVisionCompat (#iris:mixins.iris.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.KeyedClientResourceReloaderMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+		xaero.common.mixin.MixinGameRenderer (#xaerominimap:xaerominimap.mixins.json)
+		dev.tr7zw.exordium.mixin.GameRendererMixinHigh (#exordium:exordium.mixins.json)
+		virtuoel.pehkui.mixin.reach.compat.client.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		dev.isxander.debugify.mixins.basic.client.mc217716.GameRendererMixin (#debugify:debugify-common.mixins.json)
+		gg.essential.mixins.transformers.events.Mixin_GuiDrawScreenEvent_Priority (mixins.essential.json)
+		io.github.apace100.apoli.mixin.GameRendererMixin (#apoli:apoli.mixins.json)
+	net.minecraft.class_310:
+		dev.lambdaurora.lambdynlights.mixin.MinecraftClientMixin (#lambdynlights:lambdynlights.mixins.json)
+		dynamic_fps.impl.mixin.MinecraftMixin (#dynamic_fps:dynamic_fps.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinResourceReload (#entity_texture_features:entity_texture_features-common.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_PipelineManagement (#iris:mixins.iris.json)
+		malte0811.ferritecore.mixin.fabric.MinecraftMixin (#ferritecore:ferritecore.fabric.mixin.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_FixKeybindUnpressedInEmoteWheel (mixins.essential.json)
+		org.quiltmc.qsl.lifecycle.mixin.client.MinecraftClientMixin (#quilt_lifecycle_events:quilt_lifecycle_events.mixins.json)
+		traben.entity_model_features.mixin.accessor.MinecraftClientAccessor (#entity_model_features:entity_model_features-common.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinMinecraftClient (#entity_texture_features:entity_texture_features-common.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin (#optigui:optigui.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Images (#iris:mixins.iris.json)
+		dev.isxander.debugify.mixins.basic.client.mc46766.MinecraftClientMixin (#debugify:debugify-common.mixins.json)
+		dev.tr7zw.exordium.mixin.MinecraftMixin (#exordium:exordium.mixins.json)
+		ca.fxco.memoryleakfix.mixin.targetEntityLeak.Minecraft_targetClearMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_NoAuthInDev (#iris:mixins.iris.json)
+		dzwdz.chat_heads.mixin.MinecraftMixin (#chat_heads:chat_heads.mixins.json)
+		gg.essential.mixins.transformers.client.Mixin_RunEssentialTasks (mixins.essential.json)
+		io.github.thecsdev.tcdcommons.client.mixin.events.MixinMinecraftClient (#tcdcommons:tcdcommons.client.mixin.events.json)
+		org.quiltmc.qsl.base.mixin.client.MinecraftClientMixin (#quilt_base:quilt_base.mixins.json)
+		draylar.omegaconfig.mixin.ClientMixin (#omega-config:omega-config.mixins.json)
+		gg.essential.mixins.transformers.client.MixinMinecraft (mixins.essential.json)
+		ca.fxco.memoryleakfix.mixin.customPayloadLeak.Minecraft_freeBufferMixin (#memoryleakfix:memoryleakfix-fabric.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinMinecraft (#architectury:architectury.mixins.json)
+		net.darkhax.bookshelf.mixin.client.AccessorMinecraft (#bookshelf:bookshelf.common.mixins.json)
+		xaero.common.mixin.MixinMinecraftClient (#xaerominimap:xaerominimap.mixins.json)
+		snownee.jade.mixin.MinecraftMixin (#jade:jade.mixins.json)
+		net.fabricmc.fabric.mixin.datagen.client.MinecraftClientMixin (#fabric-data-generation-api-v1:fabric-data-generation-api-v1.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.enchantment.MinecraftClientMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Keybinds (#iris:mixins.iris.json)
+		io.wispforest.owo.mixin.MinecraftClientMixin (#owo:owo.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientMixin (#languagereload:languagereload.mixins.json)
+		ca.fxco.memoryleakfix.mixin.hugeScreenshotLeak.Minecraft_screenshotMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		gg.essential.mixins.transformers.compatibility.forge.Mixin_FixInternalByteBufAccess (mixins.essential.json)
+		net.raphimc.immediatelyfast.injection.mixins.hud_batching.MixinMinecraftClient (#immediatelyfast:immediatelyfast.mixins.json)
+		com.blamejared.ambientenvironment.mixin.MixinMinecraft (#ambientenvironment:ambientenvironment.fabric.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinMinecraftClient (#inventoryprofilesnext:mixins.ipnext.json)
+		gg.essential.mixins.transformers.compatibility.vanilla.Mixin_WorkaroundBrokenFramebufferBlitBlending (mixins.essential.json)
+		me.flashyreese.mods.sodiumextra.mixin.gui.MinecraftClientAccessor (#sodium-extra:sodium-extra.mixins.json)
+		traben.entity_model_features.mixin.MixinResourceReload (#entity_model_features:entity_model_features-common.mixins.json)
+		org.quiltmc.qsl.screen.mixin.client.MinecraftClientMixin (#quilt_screen:quilt_screen.mixins.json)
+		dev.lambdaurora.spruceui.mixin.MinecraftClientMixin (#spruceui:spruceui.mixins.json)
+		org.quiltmc.qsl.command.mixin.client.MinecraftClientMixin (#quilt_client_command:quilt_client_command.mixins.json)
+		potionstudios.byg.mixin.client.MixinMinecraft (#byg:byg_fabric.mixins.json)
+		me.axieum.mcmod.authme.mixin.MinecraftClientAccessor (#authme:authme.mixins.json)
+		net.fabricmc.fabric.mixin.registry.sync.client.MixinMinecraftClient (#quilted_fabric_registry_sync_v0:quilted_fabric_registry_sync_v0.mixins.json)
+		me.jellysquid.mods.sodium.mixin.core.MixinMinecraftClient (#sodium:sodium.mixins.json)
+		org.quiltmc.qsl.networking.mixin.accessor.MinecraftClientAccessor (#quilt_networking:quilt_networking.mixins.json)
+		gg.essential.mixins.transformers.events.Mixin_RenderTickEvent (mixins.essential.json)
+		org.quiltmc.qsl.registry.mixin.client.MinecraftClientMixin (#quilt_registry:quilt_registry.mixins.json)
+		io.github.coolmineman.bitsandchisels.mixin.MinecraftClientMixin (#bitsandchisels:bitsandchisels.mixins.json)
+		me.lucko.spark.fabric.mixin.MinecraftClientAccessor (#spark:spark.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin2 (#optigui:optigui.mixins.json)
+		io.github.apace100.apoli.mixin.MinecraftClientMixin (#apoli:apoli.mixins.json)
+		net.fabricmc.fabric.mixin.event.interaction.MixinMinecraftClient (#quilted_fabric_events_interaction_v0:quilted_fabric_events_interaction_v0.mixins.json)
+		squeek.appleskin.mixin.MinecraftClientMixin (#appleskin:appleskin.mixins.json)
+		ca.fxco.moreculling.mixin.MinecraftClient_blockRenderManagerMixin (#moreculling:moreculling.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientAccessor (#languagereload:languagereload.mixins.json)
+		xaero.map.mixin.MixinMinecraftClient (#xaeroworldmap:xaeroworldmap.mixins.json)
+		randommcsomethin.fallingleaves.mixin.MinecraftClientMixin (#fallingleaves:fallingleaves.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MinecraftClientMixin (#dashloader:dashloader.mixins.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_RecalculateMenuScale (mixins.essential.json)
+		com.rdvdev2.disablecustomworldsadvice.mixin.MixinMinecraftClient (#disable_custom_worlds_advice:disable_custom_worlds_advice.mixins.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.MinecraftClientMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+	net.minecraft.client.main.Main:
+		io.github.ultimateboomer.smoothboot.mixin.client.MainMixin (#smoothboot:smoothboot.mixins.json)
+		link.infra.screenshotclipboard.common.mixin.AWTHackMixin (#screenshotclipboard:screenshotclipboard-common.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MainMixin (#dashloader:dashloader.mixins.json)
+
+-- Screen render details --
+Details:
+	Screen name: net.minecraft.class_481
+	Mouse location: Scaled: (245, 129). Absolute: (491.000000, 259.000000)
+	Screen size: Scaled: (427, 240). Absolute: (854, 480). Scale factor of 2.000000
+Stacktrace:
+	at net.minecraft.class_757.method_3192(class_757.java:877)
+	at net.minecraft.class_310.method_1523(class_310.java:1122)
+	at net.minecraft.class_310.method_1514(class_310.java:737)
+	at net.minecraft.client.main.Main.main(Main.java:236)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.quiltmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:551)
+	at org.quiltmc.loader.impl.launch.knot.Knot.launch(Knot.java:84)
+	at org.quiltmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:28)
+Mixins in Stacktrace:
+	net.minecraft.class_757:
+		com.jamieswhiteshirt.reachentityattributes.mixin.client.GameRendererMixin (#reach-entity-attributes:mixins.reach-entity-attributes.json)
+		dev.quantumfusion.dashloader.mixin.option.cache.shader.GameRendererMixin (#dashloader:dashloader.mixins.json)
+		dynamic_fps.impl.mixin.GameRendererMixin (#dynamic_fps:dynamic_fps.mixins.json)
+		xaero.map.mixin.MixinGameRenderer (#xaeroworldmap:xaeroworldmap.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinGameRenderer (#inventoryprofilesnext:mixins.ipnext.json)
+		net.coderbot.iris.mixin.MixinModelViewBobbing (#iris:mixins.iris.json)
+		dev.tr7zw.exordium.mixin.GameRendererMixinLow (#exordium:exordium.mixins.json)
+		org.quiltmc.qsl.screen.mixin.client.GameRendererMixin (#quilt_screen:quilt_screen.mixins.json)
+		net.coderbot.iris.mixin.MixinGameRenderer (#iris:mixins.iris.json)
+		gg.essential.mixins.transformers.client.renderer.MixinEntityRenderer (mixins.essential.json)
+		me.flashyreese.mods.sodiumextra.mixin.prevent_shaders.MixinGameRenderer (#sodium-extra:sodium-extra.mixins.json)
+		virtuoel.pehkui.mixin.client.compat115plus.compat1192minus.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		virtuoel.pehkui.mixin.client.compat115plus.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinGameRenderer (#architectury:architectury.mixins.json)
+		gg.essential.mixins.transformers.client.renderer.MixinEntityRenderer_Zoom (mixins.essential.json)
+		folk.sisby.swingthrough.mixin.client.GameRendererMixin (#swingthrough:swingthrough.mixins.json)
+		net.coderbot.iris.mixin.GameRendererAccessor (#iris:mixins.iris.json)
+		net.coderbot.iris.mixin.MixinGameRenderer_NightVisionCompat (#iris:mixins.iris.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.KeyedClientResourceReloaderMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+		xaero.common.mixin.MixinGameRenderer (#xaerominimap:xaerominimap.mixins.json)
+		dev.tr7zw.exordium.mixin.GameRendererMixinHigh (#exordium:exordium.mixins.json)
+		virtuoel.pehkui.mixin.reach.compat.client.GameRendererMixin (#pehkui:pehkui.mixins.json)
+		dev.isxander.debugify.mixins.basic.client.mc217716.GameRendererMixin (#debugify:debugify-common.mixins.json)
+		gg.essential.mixins.transformers.events.Mixin_GuiDrawScreenEvent_Priority (mixins.essential.json)
+		io.github.apace100.apoli.mixin.GameRendererMixin (#apoli:apoli.mixins.json)
+	net.minecraft.class_310:
+		dev.lambdaurora.lambdynlights.mixin.MinecraftClientMixin (#lambdynlights:lambdynlights.mixins.json)
+		dynamic_fps.impl.mixin.MinecraftMixin (#dynamic_fps:dynamic_fps.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinResourceReload (#entity_texture_features:entity_texture_features-common.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_PipelineManagement (#iris:mixins.iris.json)
+		malte0811.ferritecore.mixin.fabric.MinecraftMixin (#ferritecore:ferritecore.fabric.mixin.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_FixKeybindUnpressedInEmoteWheel (mixins.essential.json)
+		org.quiltmc.qsl.lifecycle.mixin.client.MinecraftClientMixin (#quilt_lifecycle_events:quilt_lifecycle_events.mixins.json)
+		traben.entity_model_features.mixin.accessor.MinecraftClientAccessor (#entity_model_features:entity_model_features-common.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinMinecraftClient (#entity_texture_features:entity_texture_features-common.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin (#optigui:optigui.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Images (#iris:mixins.iris.json)
+		dev.isxander.debugify.mixins.basic.client.mc46766.MinecraftClientMixin (#debugify:debugify-common.mixins.json)
+		dev.tr7zw.exordium.mixin.MinecraftMixin (#exordium:exordium.mixins.json)
+		ca.fxco.memoryleakfix.mixin.targetEntityLeak.Minecraft_targetClearMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_NoAuthInDev (#iris:mixins.iris.json)
+		dzwdz.chat_heads.mixin.MinecraftMixin (#chat_heads:chat_heads.mixins.json)
+		gg.essential.mixins.transformers.client.Mixin_RunEssentialTasks (mixins.essential.json)
+		io.github.thecsdev.tcdcommons.client.mixin.events.MixinMinecraftClient (#tcdcommons:tcdcommons.client.mixin.events.json)
+		org.quiltmc.qsl.base.mixin.client.MinecraftClientMixin (#quilt_base:quilt_base.mixins.json)
+		draylar.omegaconfig.mixin.ClientMixin (#omega-config:omega-config.mixins.json)
+		gg.essential.mixins.transformers.client.MixinMinecraft (mixins.essential.json)
+		ca.fxco.memoryleakfix.mixin.customPayloadLeak.Minecraft_freeBufferMixin (#memoryleakfix:memoryleakfix-fabric.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinMinecraft (#architectury:architectury.mixins.json)
+		net.darkhax.bookshelf.mixin.client.AccessorMinecraft (#bookshelf:bookshelf.common.mixins.json)
+		xaero.common.mixin.MixinMinecraftClient (#xaerominimap:xaerominimap.mixins.json)
+		snownee.jade.mixin.MinecraftMixin (#jade:jade.mixins.json)
+		net.fabricmc.fabric.mixin.datagen.client.MinecraftClientMixin (#fabric-data-generation-api-v1:fabric-data-generation-api-v1.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.enchantment.MinecraftClientMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Keybinds (#iris:mixins.iris.json)
+		io.wispforest.owo.mixin.MinecraftClientMixin (#owo:owo.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientMixin (#languagereload:languagereload.mixins.json)
+		ca.fxco.memoryleakfix.mixin.hugeScreenshotLeak.Minecraft_screenshotMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		gg.essential.mixins.transformers.compatibility.forge.Mixin_FixInternalByteBufAccess (mixins.essential.json)
+		net.raphimc.immediatelyfast.injection.mixins.hud_batching.MixinMinecraftClient (#immediatelyfast:immediatelyfast.mixins.json)
+		com.blamejared.ambientenvironment.mixin.MixinMinecraft (#ambientenvironment:ambientenvironment.fabric.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinMinecraftClient (#inventoryprofilesnext:mixins.ipnext.json)
+		gg.essential.mixins.transformers.compatibility.vanilla.Mixin_WorkaroundBrokenFramebufferBlitBlending (mixins.essential.json)
+		me.flashyreese.mods.sodiumextra.mixin.gui.MinecraftClientAccessor (#sodium-extra:sodium-extra.mixins.json)
+		traben.entity_model_features.mixin.MixinResourceReload (#entity_model_features:entity_model_features-common.mixins.json)
+		org.quiltmc.qsl.screen.mixin.client.MinecraftClientMixin (#quilt_screen:quilt_screen.mixins.json)
+		dev.lambdaurora.spruceui.mixin.MinecraftClientMixin (#spruceui:spruceui.mixins.json)
+		org.quiltmc.qsl.command.mixin.client.MinecraftClientMixin (#quilt_client_command:quilt_client_command.mixins.json)
+		potionstudios.byg.mixin.client.MixinMinecraft (#byg:byg_fabric.mixins.json)
+		me.axieum.mcmod.authme.mixin.MinecraftClientAccessor (#authme:authme.mixins.json)
+		net.fabricmc.fabric.mixin.registry.sync.client.MixinMinecraftClient (#quilted_fabric_registry_sync_v0:quilted_fabric_registry_sync_v0.mixins.json)
+		me.jellysquid.mods.sodium.mixin.core.MixinMinecraftClient (#sodium:sodium.mixins.json)
+		org.quiltmc.qsl.networking.mixin.accessor.MinecraftClientAccessor (#quilt_networking:quilt_networking.mixins.json)
+		gg.essential.mixins.transformers.events.Mixin_RenderTickEvent (mixins.essential.json)
+		org.quiltmc.qsl.registry.mixin.client.MinecraftClientMixin (#quilt_registry:quilt_registry.mixins.json)
+		io.github.coolmineman.bitsandchisels.mixin.MinecraftClientMixin (#bitsandchisels:bitsandchisels.mixins.json)
+		me.lucko.spark.fabric.mixin.MinecraftClientAccessor (#spark:spark.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin2 (#optigui:optigui.mixins.json)
+		io.github.apace100.apoli.mixin.MinecraftClientMixin (#apoli:apoli.mixins.json)
+		net.fabricmc.fabric.mixin.event.interaction.MixinMinecraftClient (#quilted_fabric_events_interaction_v0:quilted_fabric_events_interaction_v0.mixins.json)
+		squeek.appleskin.mixin.MinecraftClientMixin (#appleskin:appleskin.mixins.json)
+		ca.fxco.moreculling.mixin.MinecraftClient_blockRenderManagerMixin (#moreculling:moreculling.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientAccessor (#languagereload:languagereload.mixins.json)
+		xaero.map.mixin.MixinMinecraftClient (#xaeroworldmap:xaeroworldmap.mixins.json)
+		randommcsomethin.fallingleaves.mixin.MinecraftClientMixin (#fallingleaves:fallingleaves.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MinecraftClientMixin (#dashloader:dashloader.mixins.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_RecalculateMenuScale (mixins.essential.json)
+		com.rdvdev2.disablecustomworldsadvice.mixin.MixinMinecraftClient (#disable_custom_worlds_advice:disable_custom_worlds_advice.mixins.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.MinecraftClientMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+	net.minecraft.client.main.Main:
+		io.github.ultimateboomer.smoothboot.mixin.client.MainMixin (#smoothboot:smoothboot.mixins.json)
+		link.infra.screenshotclipboard.common.mixin.AWTHackMixin (#screenshotclipboard:screenshotclipboard-common.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MainMixin (#dashloader:dashloader.mixins.json)
+
+-- Affected level --
+Details:
+	All players: 2 total; [class_746['DragonMoth28'/10798, l='ClientLevel', x=256.23, y=128.00, z=-2119.07], class_745['xXLemmyFanXx'/5168, l='ClientLevel', x=259.16, y=128.00, z=-2119.47]]
+	Chunk stats: 1024, 163
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-32,73,-352), Section: (at 0,9,0 in -2,4,-22; chunk contains blocks -32,-64,-352 to -17,319,-337), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,-64,-512 to -1,319,-1)
+	Level time: 2569451 game time, 318471 day time
+	Server brand: fabric
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.class_638.method_8538(class_638.java:407)
+	at net.minecraft.class_310.method_1587(class_310.java:2376)
+	at net.minecraft.class_310.method_1514(class_310.java:756)
+	at net.minecraft.client.main.Main.main(Main.java:236)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.quiltmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:551)
+	at org.quiltmc.loader.impl.launch.knot.Knot.launch(Knot.java:84)
+	at org.quiltmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:28)
+Mixins in Stacktrace:
+	net.minecraft.class_638:
+		org.quiltmc.qsl.lifecycle.mixin.client.ClientWorldMixin (#quilt_lifecycle_events:quilt_lifecycle_events.mixins.json)
+		net.coderbot.iris.mixin.vertices.block_rendering.MixinClientLevel (#iris:mixins.iris.vertexformat.json)
+		virtuoel.pehkui.mixin.client.ClientWorldMixin (#pehkui:pehkui.mixins.json)
+		xaero.map.mixin.MixinClientWorld (#xaeroworldmap:xaeroworldmap.mixins.json)
+		potionstudios.byg.mixin.access.client.ClientLevelAccess (#byg:byg.mixins.json)
+		me.jellysquid.mods.sodium.mixin.features.fast_biome_colors.MixinClientWorld (#sodium:sodium.mixins.json)
+		gg.essential.mixins.transformers.feature.particles.Mixin_AddParticleSystemToClientWorld (mixins.essential.json)
+		dev.onyxstudios.cca.mixin.entity.client.MixinClientWorld (#cardinal-components-entity:mixins.cardinal_components_entity.json)
+		dev.tr7zw.entityculling.mixin.ClientWorldMixin (#entityculling:entityculling.mixins.json)
+		me.steinborn.krypton.mixin.client.fastchunkentityaccess.ClientWorldMixin (#krypton:krypton.mixins.json)
+		me.jellysquid.mods.lithium.mixin.chunk.entity_class_groups.ClientWorldMixin (#lithium:lithium.mixins.json)
+		snownee.jade.mixin.ClientLevelMixin (#jade:jade.mixins.json)
+		me.jellysquid.mods.sodium.mixin.features.chunk_rendering.MixinClientWorld (#sodium:sodium.mixins.json)
+		me.pieking1215.waterdripsound.mixin.client.MixinClientWorld (#waterdripsound:waterdripsound.mixins.json)
+		me.lucko.spark.fabric.mixin.ClientWorldAccessor (#spark:spark.mixins.json)
+		dev.lambdaurora.lambdynlights.mixin.ClientWorldMixin (#lambdynlights:lambdynlights.mixins.json)
+		xaero.common.mixin.MixinClientWorld (#xaerominimap:xaerominimap.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinClientLevel (#architectury:architectury.mixins.json)
+	net.minecraft.class_310:
+		dev.lambdaurora.lambdynlights.mixin.MinecraftClientMixin (#lambdynlights:lambdynlights.mixins.json)
+		dynamic_fps.impl.mixin.MinecraftMixin (#dynamic_fps:dynamic_fps.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinResourceReload (#entity_texture_features:entity_texture_features-common.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_PipelineManagement (#iris:mixins.iris.json)
+		malte0811.ferritecore.mixin.fabric.MinecraftMixin (#ferritecore:ferritecore.fabric.mixin.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_FixKeybindUnpressedInEmoteWheel (mixins.essential.json)
+		org.quiltmc.qsl.lifecycle.mixin.client.MinecraftClientMixin (#quilt_lifecycle_events:quilt_lifecycle_events.mixins.json)
+		traben.entity_model_features.mixin.accessor.MinecraftClientAccessor (#entity_model_features:entity_model_features-common.mixins.json)
+		traben.entity_texture_features.mixin.reloading.MixinMinecraftClient (#entity_texture_features:entity_texture_features-common.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin (#optigui:optigui.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Images (#iris:mixins.iris.json)
+		dev.isxander.debugify.mixins.basic.client.mc46766.MinecraftClientMixin (#debugify:debugify-common.mixins.json)
+		dev.tr7zw.exordium.mixin.MinecraftMixin (#exordium:exordium.mixins.json)
+		ca.fxco.memoryleakfix.mixin.targetEntityLeak.Minecraft_targetClearMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_NoAuthInDev (#iris:mixins.iris.json)
+		dzwdz.chat_heads.mixin.MinecraftMixin (#chat_heads:chat_heads.mixins.json)
+		gg.essential.mixins.transformers.client.Mixin_RunEssentialTasks (mixins.essential.json)
+		io.github.thecsdev.tcdcommons.client.mixin.events.MixinMinecraftClient (#tcdcommons:tcdcommons.client.mixin.events.json)
+		org.quiltmc.qsl.base.mixin.client.MinecraftClientMixin (#quilt_base:quilt_base.mixins.json)
+		draylar.omegaconfig.mixin.ClientMixin (#omega-config:omega-config.mixins.json)
+		gg.essential.mixins.transformers.client.MixinMinecraft (mixins.essential.json)
+		ca.fxco.memoryleakfix.mixin.customPayloadLeak.Minecraft_freeBufferMixin (#memoryleakfix:memoryleakfix-fabric.mixins.json)
+		dev.architectury.mixin.fabric.client.MixinMinecraft (#architectury:architectury.mixins.json)
+		net.darkhax.bookshelf.mixin.client.AccessorMinecraft (#bookshelf:bookshelf.common.mixins.json)
+		xaero.common.mixin.MixinMinecraftClient (#xaerominimap:xaerominimap.mixins.json)
+		snownee.jade.mixin.MinecraftMixin (#jade:jade.mixins.json)
+		net.fabricmc.fabric.mixin.datagen.client.MinecraftClientMixin (#fabric-data-generation-api-v1:fabric-data-generation-api-v1.mixins.json)
+		shcm.shsupercm.fabric.citresewn.defaults.mixin.types.enchantment.MinecraftClientMixin (#citresewn-defaults:citresewn-defaults.mixins.json)
+		net.coderbot.iris.mixin.MixinMinecraft_Keybinds (#iris:mixins.iris.json)
+		io.wispforest.owo.mixin.MinecraftClientMixin (#owo:owo.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientMixin (#languagereload:languagereload.mixins.json)
+		ca.fxco.memoryleakfix.mixin.hugeScreenshotLeak.Minecraft_screenshotMixin (#memoryleakfix:memoryleakfix.mixins.json)
+		gg.essential.mixins.transformers.compatibility.forge.Mixin_FixInternalByteBufAccess (mixins.essential.json)
+		net.raphimc.immediatelyfast.injection.mixins.hud_batching.MixinMinecraftClient (#immediatelyfast:immediatelyfast.mixins.json)
+		com.blamejared.ambientenvironment.mixin.MixinMinecraft (#ambientenvironment:ambientenvironment.fabric.mixins.json)
+		org.anti_ad.mc.ipnext.mixin.MixinMinecraftClient (#inventoryprofilesnext:mixins.ipnext.json)
+		gg.essential.mixins.transformers.compatibility.vanilla.Mixin_WorkaroundBrokenFramebufferBlitBlending (mixins.essential.json)
+		me.flashyreese.mods.sodiumextra.mixin.gui.MinecraftClientAccessor (#sodium-extra:sodium-extra.mixins.json)
+		traben.entity_model_features.mixin.MixinResourceReload (#entity_model_features:entity_model_features-common.mixins.json)
+		org.quiltmc.qsl.screen.mixin.client.MinecraftClientMixin (#quilt_screen:quilt_screen.mixins.json)
+		dev.lambdaurora.spruceui.mixin.MinecraftClientMixin (#spruceui:spruceui.mixins.json)
+		org.quiltmc.qsl.command.mixin.client.MinecraftClientMixin (#quilt_client_command:quilt_client_command.mixins.json)
+		potionstudios.byg.mixin.client.MixinMinecraft (#byg:byg_fabric.mixins.json)
+		me.axieum.mcmod.authme.mixin.MinecraftClientAccessor (#authme:authme.mixins.json)
+		net.fabricmc.fabric.mixin.registry.sync.client.MixinMinecraftClient (#quilted_fabric_registry_sync_v0:quilted_fabric_registry_sync_v0.mixins.json)
+		me.jellysquid.mods.sodium.mixin.core.MixinMinecraftClient (#sodium:sodium.mixins.json)
+		org.quiltmc.qsl.networking.mixin.accessor.MinecraftClientAccessor (#quilt_networking:quilt_networking.mixins.json)
+		gg.essential.mixins.transformers.events.Mixin_RenderTickEvent (mixins.essential.json)
+		org.quiltmc.qsl.registry.mixin.client.MinecraftClientMixin (#quilt_registry:quilt_registry.mixins.json)
+		io.github.coolmineman.bitsandchisels.mixin.MinecraftClientMixin (#bitsandchisels:bitsandchisels.mixins.json)
+		me.lucko.spark.fabric.mixin.MinecraftClientAccessor (#spark:spark.mixins.json)
+		opekope2.optigui.mixin.MinecraftClientMixin2 (#optigui:optigui.mixins.json)
+		io.github.apace100.apoli.mixin.MinecraftClientMixin (#apoli:apoli.mixins.json)
+		net.fabricmc.fabric.mixin.event.interaction.MixinMinecraftClient (#quilted_fabric_events_interaction_v0:quilted_fabric_events_interaction_v0.mixins.json)
+		squeek.appleskin.mixin.MinecraftClientMixin (#appleskin:appleskin.mixins.json)
+		ca.fxco.moreculling.mixin.MinecraftClient_blockRenderManagerMixin (#moreculling:moreculling.mixins.json)
+		jerozgen.languagereload.mixin.MinecraftClientAccessor (#languagereload:languagereload.mixins.json)
+		xaero.map.mixin.MixinMinecraftClient (#xaeroworldmap:xaeroworldmap.mixins.json)
+		randommcsomethin.fallingleaves.mixin.MinecraftClientMixin (#fallingleaves:fallingleaves.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MinecraftClientMixin (#dashloader:dashloader.mixins.json)
+		gg.essential.mixins.transformers.client.gui.Mixin_RecalculateMenuScale (mixins.essential.json)
+		com.rdvdev2.disablecustomworldsadvice.mixin.MixinMinecraftClient (#disable_custom_worlds_advice:disable_custom_worlds_advice.mixins.json)
+		org.quiltmc.qsl.resource.loader.mixin.client.MinecraftClientMixin (#quilt_resource_loader:quilt_resource_loader.mixins.json)
+	net.minecraft.client.main.Main:
+		io.github.ultimateboomer.smoothboot.mixin.client.MainMixin (#smoothboot:smoothboot.mixins.json)
+		link.infra.screenshotclipboard.common.mixin.AWTHackMixin (#screenshotclipboard:screenshotclipboard-common.mixins.json)
+		dev.quantumfusion.dashloader.mixin.main.MainMixin (#dashloader:dashloader.mixins.json)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: Default, lambdabettergrass/default, [1.3] Enhanced Boss Bars.zip, charmonium/journeyman, xali's Enhanced Vanilla v1.11.1.zip, Dark Everywhere.zip, enchant icons 1.18.x v1.2.zip, Better_Farm_Animals_V0.06.zip, Better_Cats_V0.09.zip, Archangel_resource_pack.zip, 3D Redstone Dust.zip, 3.3.1v_VisualEnchantments.zip, Better_Dogs_V0.38.zip, Better_Enderdragon.zip, continuity/glass_pane_culling_fix, continuity/default, Authentic Shadows_1.18.zip, wdb_1.18.2.zip, betterbeds/connectedbeds, Essential (fabric_1.18.2).jar
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.2
+	Minecraft Version ID: 1.18.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.9, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Azul Systems, Inc.
+	Memory: 532752952 bytes (508 MiB) / 2147483648 bytes (2048 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-1005G1 CPU @ 1.20GHz
+	Identifier: Intel64 Family 6 Model 126 Stepping 5
+	Microarchitecture: Ice Lake (Client)
+	Frequency (GHz): 1.19
+	Number of physical packages: 1
+	Number of physical CPUs: 2
+	Number of logical CPUs: 4
+	Graphics card #0 name: Parsec Virtual Display Adapter
+	Graphics card #0 vendor: Parsec Cloud, Inc.
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: DriverVersion=0.41.0.0
+	Graphics card #1 name: Intel(R) UHD Graphics
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0x8a56
+	Graphics card #1 versionInfo: DriverVersion=27.20.100.9126
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Virtual memory max (MB): 15755.95
+	Virtual memory used (MB): 11672.73
+	Swap memory total (MB): 7877.98
+	Swap memory used (MB): 2036.39
+	JVM Flags: 2 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx2048M
+	Quilt Mods: 
+		additionalentityattributes: Additionalentityattributes 1.0.0+1.18.2
+		advanced_runtime_resource_pack: Runtime Resource Pack 0.5.5
+		altorigingui: Alternate Origin GUI 1.0.1
+		ambientenvironment: Ambient Environment 7.0+19
+		ambientsounds: Ambiend Sounds (Fabric) 5.0.16
+		apoli: Apoli 2.3.3
+		appleskin: AppleSkin 2.4.1+mc1.18.2
+		architectury: Architectury 4.11.93
+		authme: Auth Me 3.1.0
+		betterbeds: Better Beds 1.2.0
+		betterf3: BetterF3 3.0.0
+		betterstats: Better Statistics Screen 2.9.3+1.18.2
+		bitsandchisels: BitsAndChisels 2.6.13
+		bookshelf: Bookshelf 13.2.47
+		byg: Oh The Biomes You'll Go 1.4
+		caffeineconfig: CaffeineConfig 1.1.0+1.17
+		calio: Calio 1.5.1
+		capes: Capes 1.3.1+1.18.2
+		cardinal-components-base: Cardinal Components API (base) 4.1.4
+		cardinal-components-entity: Cardinal Components API (entities) 4.1.4
+		charmonium: Charmonium 4.1.0
+		chat_heads: Chat Heads 0.6.0
+		citresewn: CIT Resewn 1.1.1+1.18.2
+		citresewn-defaults: CIT Resewn: Defaults 1.1.1+1.18.2
+		cloth-basic-math: cloth-basic-math 0.6.1
+		cloth-config: Cloth Config v6 6.5.102
+		clumps: Clumps 8.0.0+17
+		com_electronwill_night-config_core: core 3.6.7
+		com_electronwill_night-config_toml: toml 3.6.7
+		com_eliotlash_mclib_mclib: mclib 20
+		com_github_llamalad7_mixinextras: MixinExtras 0.2.0-beta.8
+		com_github_luben_zstd-jni: zstd-jni 1.5.2-2
+		com_moandjiezana_toml_toml4j: toml4j 0.7.2
+		com_velocitypowered_velocity-native: velocity-native 1.1.0-SNAPSHOT
+		completeconfig: CompleteConfig 1.4.1
+		conditional-mixin: conditional mixin 0.3.0
+		continuity: Continuity 2.0.2+1.18.2
+		creativecore: CreativeCore (Fabric) 2.6.12
+		crowdin-translate: CrowdinTranslate 1.4+1.18.2
+		cull-less-leaves: Cull Less Leaves 1.0.1
+		dashloader: DashLoader 4.1.3+1.18
+		debugify: Debugify 1.11.0
+		dev_quantumfusion_hyphen: Hyphen 0.2.2
+		dev_quantumfusion_taski: Taski 1.1.0
+		disable_custom_worlds_advice: Disable Custom Worlds Advice 2.0
+		dynamic_fps: Dynamic FPS 3.2.1
+		effective: Effective 1.2.1
+		enchant_giver: Enchant Giver 1.2.1
+		enchdesc: EnchantmentDescriptions 10.0.4
+		enhancedblockentities: Enhanced Block Entities 0.7.1+1.18.2
+		entity_model_features: Entity Model Features 1.1.0
+		entity_texture_features: Entity Texture Features 4.6.1
+		entityculling: EntityCulling-Fabric 1.6.1-mc1.18.2
+		error_notifier: Error Notifier 1.0.9
+		essential-container: essential-container 1.0.0
+		essential-loader: essential-loader 1.2.1
+		exordium: Exordium 1.0.1-mc1.18.2
+		extraorigins: Extra Origins 1.18-12
+		fabric-block-api-v1: Fabric Block API (v1) 1.0.0+ee3621fc60
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 3.1.0+6c70b68e60
+		fabric-language-kotlin: Fabric Language Kotlin 1.10.13+kotlin.1.9.20
+		fabric-loot-api-v2: Fabric Loot API (v2) 1.1.2+1997ad1260
+		fabric-permissions-api-v0: fabric-permissions-api 0.1-SNAPSHOT
+		fallingleaves: Falling Leaves 1.11.1+1.18.2
+		ferritecore: FerriteCore 4.2.1
+		fwaystones: Fabric Waystones 3.0.0+mc1.18.2
+		geckolib3q: Geckolib 3.0.46
+		goosik-config: goosik-config 0.2.0
+		immediatelyfast: ImmediatelyFast 1.1.12
+		indium: Indium 1.0.7+mc1.18.2
+		inventoryprofilesnext: Inventory Profiles Next 1.10.9
+		invmove: InvMove 0.8.4
+		io_github_douira_glsl-transformer: glsl-transformer 2.0.0-pre13
+		iris: Iris 1.6.10
+		jade: Jade 5.100.0
+		jadeaddons: Jade Addons 2.2.0
+		java: OpenJDK 64-Bit Server VM 17
+		kanos_config: Kanos Config 0.4.1+1.14.4-1.19.4
+		kirin: Kirin UI 1.10.0
+		krypton: Krypton 0.1.9
+		lambdabettergrass: LambdaBetterGrass 1.2.4+1.18
+		lambdynlights: LambDynamicLights 2.1.0+1.17
+		languagereload: Language Reload 1.5.4+1.18.2
+		lazydfu: LazyDFU 0.1.2
+		libipn: libIPN 4.0.1
+		lithium: Lithium 0.10.3
+		mcda: MC Dungeons Armors 2.0.7
+		mcdar: MC Dungeons Artifacts 1.5.2-1.18
+		mcdw: MC Dungeons Weapons 5.0.4-1.18
+		memoryleakfix: Memory Leak Fix 1.1.2
+		midnightlib: MidnightLib 0.4.0
+		minecraft: Minecraft 1.18.2
+		mixintrace: MixinTrace 1.1.1+1.17
+		moborigins: Mob Origins 1.8.1
+		modelfix: Model Gap Fix 1.0
+		modmenu: Mod Menu 3.2.5
+		moreculling: More Culling 1.18.2-0.8.2
+		mousetweaks: Mouse Tweaks 2.22
+		net_lenni0451_reflect: Reflect 1.1.0
+		no-resource-pack-warnings: No Resource Pack Warnings 1.1.1
+		notenoughanimations: NotEnoughAnimations 1.6.0
+		omega-config: OmegaConfig 1.2.3-1.18.1
+		optiglue: OptiGlue 2.1.6-mc.1.18.2
+		optigui: OptiGUI 2.1.6
+		org_anarres_jcpp: jcpp 1.4.14
+		org_antlr_antlr4-runtime: antlr4-runtime 4.11.1
+		org_apache_commons_commons-text: commons-text 1.10.0
+		org_apache_httpcomponents_httpmime: httpmime 4.5.10
+		org_aperlambda_lambdajcommon: lambdajcommon 1.8.1
+		org_ini4j_ini4j: ini4j 0.5.4
+		org_jetbrains_kotlin_kotlin-reflect: kotlin-reflect 1.9.20
+		org_jetbrains_kotlin_kotlin-stdlib: kotlin-stdlib 1.9.20
+		org_jetbrains_kotlin_kotlin-stdlib-jdk7: kotlin-stdlib-jdk7 1.9.20
+		org_jetbrains_kotlin_kotlin-stdlib-jdk8: kotlin-stdlib-jdk8 1.9.20
+		org_jetbrains_kotlinx_atomicfu-jvm: atomicfu-jvm 0.22.0
+		org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm: kotlinx-coroutines-core-jvm 1.7.3
+		org_jetbrains_kotlinx_kotlinx-coroutines-jdk8: kotlinx-coroutines-jdk8 1.7.3
+		org_jetbrains_kotlinx_kotlinx-datetime-jvm: kotlinx-datetime-jvm 0.4.1
+		org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm: kotlinx-serialization-cbor-jvm 1.6.0
+		org_jetbrains_kotlinx_kotlinx-serialization-core-jvm: kotlinx-serialization-core-jvm 1.6.0
+		org_jetbrains_kotlinx_kotlinx-serialization-json-jvm: kotlinx-serialization-json-jvm 1.6.0
+		org_joml_joml: joml 1.10.2
+		origins: Origins 1.4.1
+		origins-classes: Origins: Classes 1.3.0
+		origins-plus-plus: Origins++ 2.2
+		owo: oωo 0.7.2+1.18
+		pehkui: Pehkui 3.7.11+1.14.4-1.20.2
+		phosphor: Phosphor 0.8.1
+		playerabilitylib: Pal 1.5.0
+		playerladder: Player Ladder 0.6.0-pre-1.19.4
+		presencefootsteps: Presence Footsteps 1.5.1
+		pride: Pride Lib 1.1.0+1.17
+		quilt_base: Quilt Base API 1.1.0-beta.26+1.18.2
+		quilt_biome: Quilt Biome API 1.1.0-beta.26+1.18.2
+		quilt_block_entity: Quilt Block Entity API 1.1.0-beta.26+1.18.2
+		quilt_block_extensions: Quilt Block Extensions API 1.1.0-beta.26+1.18.2
+		quilt_client_command: Quilt Client Command API 1.1.0-beta.26+1.18.2
+		quilt_command: Quilt Command API 1.1.0-beta.26+1.18.2
+		quilt_crash_info: Quilt Crash Info 1.1.0-beta.26+1.18.2
+		quilt_datafixerupper: Quilt DataFixerUpper API 1.1.0-beta.26+1.18.2
+		quilt_dimension: Quilt Dimension API 1.1.0-beta.26+1.18.2
+		quilt_item_group: Quilt Item Group API 1.1.0-beta.26+1.18.2
+		quilt_item_setting: Quilt Item Setting API 1.1.0-beta.26+1.18.2
+		quilt_lifecycle_events: Quilt Lifecycle Events 1.1.0-beta.26+1.18.2
+		quilt_loader: Quilt Loader 0.22.0-beta.1
+		quilt_loading_screen: Quilt Loading Screen 3.0.0
+		quilt_networking: Quilt Networking 1.1.0-beta.26+1.18.2
+		quilt_recipe: Quilt Recipe API 1.1.0-beta.26+1.18.2
+		quilt_registry: Quilt Registry API 1.1.0-beta.26+1.18.2
+		quilt_registry_entry_attachments: Quilt Registry Entry Attachments 1.1.0-beta.26+1.18.2
+		quilt_resource_loader: Quilt Resource Loader 1.1.0-beta.26+1.18.2
+		quilt_screen: Quilt Screen API 1.1.0-beta.26+1.18.2
+		quilt_tags: Quilt Tags API 1.1.0-beta.26+1.18.2
+		quilt_tooltip: Quilt Tooltip API 1.1.0-beta.26+1.18.2
+		quilted_fabric_api: Quilted Fabric API 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_api_base: Quilted Fabric API Base 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_api_lookup_api_v1: Quilted Fabric API Lookup API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_biome_api_v1: Quilted Fabric Biome API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_blockrenderlayer_v1: Quilted Fabric BlockRenderLayer Registration (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_command_api_v1: Quilted Fabric Command API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_commands_v0: Quilted Fabric Commands (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_containers_v0: Quilted Fabric Containers (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_content_registries_v0: Quilted Fabric Content Registries (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_convention_tags_api_v1: Quilted Fabric Convention Tags API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_crash_report_info_v1: Quilted Fabric Crash Report Info (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_dimensions_v1: Quilted Fabric Dimensions API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_entity_events_v1: Quilted Fabric Entity Events (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_events_interaction_v0: Quilted Fabric Events Interaction (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_events_lifecycle_v0: Quilted Fabric Events Lifecycle (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_game_rule_api_v1: Quilted Fabric Game Rule API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_item_api_v1: Quilted Fabric Item API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_item_groups_v0: Quilted Fabric Item Groups (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_key_binding_api_v1: Quilted Fabric Key Binding API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_keybindings_v0: Quilted Fabric Key Bindings (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_lifecycle_events_v1: Quilted Fabric Lifecycle Events (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_loot_tables_v1: Quilted Fabric Loot Tables (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_mining_level_api_v1: Quilted Fabric Mining Level API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_models_v0: Quilted Fabric Models (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_networking_api_v1: Quilted Fabric Networking API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_networking_v0: Quilted Fabric Networking (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_object_builder_api_v1: Quilted Fabric Object Builder API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_particles_v1: Quilted Fabric Particles (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_registry_sync_v0: Quilted Fabric Registry Sync (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_renderer_api_v1: Quilted Fabric Renderer API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_renderer_indigo: Quilted Fabric Renderer - Indigo 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_renderer_registries_v1: Quilted Fabric Renderer Registries (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_rendering_data_attachment_v1: Quilted Fabric Rendering Data Attachment (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_rendering_fluids_v1: Quilted Fabric Rendering Fluids (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_rendering_v0: Quilted Fabric Rendering (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_rendering_v1: Quilted Fabric Rendering (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_resource_conditions_api_v1: Quilted Fabric Resource Conditions API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_resource_loader_v0: Quilted Fabric Resource Loader (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_screen_api_v1: Quilted Fabric Screen API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_screen_handler_api_v1: Quilted Fabric Screen Handler API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_textures_v0: Quilted Fabric Textures (v0) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_transfer_api_v1: Quilted Fabric Transfer API (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		quilted_fabric_transitive_access_wideners_v1: Quilted Fabric Transitive Access Wideners (v1) 1.0.0-beta.28+0.67.0-1.18.2
+		reach-entity-attributes: Reach Entity Attributes 2.2.0
+		reeses-sodium-options: Reese's Sodium Options 1.6.3+mc1.18.2-build.88
+		roughlyenoughitems: Roughly Enough Items 8.3.667
+		screenshotclipboard: Screenshot to Clipboard 1.0.9
+		skinlayers: 3d Skin Layers 1.5.2-mc1.18.2
+		smoothboot: Smooth Boot 1.18.2-1.7.0
+		sodium: Sodium 0.4.1+build.15
+		sodium-extra: Sodium Extra 0.4.18+mc1.18.2-build.98
+		spark: spark 1.10.39
+		spruceui: SpruceUI 3.3.3+1.18
+		sspb: Sodium Shadowy Path Blocks 2.0.1
+		stacc: Stacc 1.2.3
+		swingthrough: SwingThrough 1.0.4+1.19
+		tcdcommons: TCD Commons API 2.9.1+1.18.2
+		terrablender: TerraBlender 1.2.0.126
+		trinkets: Trinkets 3.3.1
+		visuality: Visuality 0.4.3
+		vt_downloader: VTDownloader 1.0.6+1.18
+		waterdripsound: Drip Sounds 1.18-0.3.0
+		waveycapes: WaveyCapes 1.3.2
+		xaerominimap: Xaero's Minimap 23.8.4
+		xaeroworldmap: Xaero's World Map 1.36.0
+	Quilted Fabric API: !! WARNING !! This instance is using Fabric API modules re-implemented by QSL. If the issue comes from Quilted Fabric API, DO NOT report to Fabric; report them to Quilt instead!
+	Loaded Shaderpack: Builder's QOL Shaders V2.10.0.zip
+		Profile: Custom (+8 options changed by user)
+	NEC status: No NEC detected
+	Launched Version: 1.18.2
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: Intel(R) UHD Graphics GL version 3.2.0 - Build 27.20.100.9126, Intel
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'quilt'
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla, lambdabettergrass/default, file/[1.3] Enhanced Boss Bars.zip, charmonium/journeyman, file/xali's Enhanced Vanilla v1.11.1.zip, file/Dark Everywhere.zip, file/enchant icons 1.18.x v1.2.zip, file/Better_Farm_Animals_V0.06.zip, file/Better_Cats_V0.09.zip, file/Archangel_resource_pack.zip, file/3D Redstone Dust.zip, file/3.3.1v_VisualEnchantments.zip, file/Better_Dogs_V0.38.zip, file/Better_Enderdragon.zip, continuity/glass_pane_culling_fix, continuity/default, file/Authentic Shadows_1.18.zip, file/wdb_1.18.2.zip, betterbeds/connectedbeds
+	Current Language: English (United Kingdom)
+	CPU: 4x Intel(R) Core(TM) i3-1005G1 CPU @ 1.20GHz
